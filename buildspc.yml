@@ -1,10 +1,10 @@
-version: 0.2
+2version: 0.2
 
 phases:
   build:
     commands:
       - npm -v
-      - bash build/deploy.sh
+      - bash test123/build/deploy.sh
       - sam package --template-file template.yaml --s3-bucket m-codepipeline --output-template-file packaged.yaml
 artifacts:
   files:
