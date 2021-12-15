@@ -10,7 +10,7 @@ Resources:
       Handler: index.handler
       Runtime: nodejs14.x
       
-      CodeUri: ./
+      CodeUri: test123/
       AutoPublishAlias: default
       DeploymentPreference:
         Enabled: True
