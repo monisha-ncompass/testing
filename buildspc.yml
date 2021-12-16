@@ -5,7 +5,7 @@ phases:
     commands:
       - npm -v
       - bash build/deploy.sh
-      - sam package --template-file template.yaml --s3-bucket lambda-codepipeline--test --output-template-file packaged.yaml
+      - sam package --template-file template.yaml --s3-bucket lambda-codepipeline--test --output-template-file packaged.yaml --capabilities CAPABILITY_AUTO_EXPAND
 artifacts:
   files:
     - "packaged.yaml"
