@@ -4,6 +4,7 @@ exports.handler =  async function(event, context) {
   console.log("hellooooo")
   return {
     statusCode: 200,
-    message: context.logStreamName
+    headers:{"Content-Type": "application/json"},
+    body: context.logStreamName
   }
  }
