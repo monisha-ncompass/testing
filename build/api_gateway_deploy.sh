@@ -23,6 +23,7 @@ Resources:
             RestApiId: !Ref RestApi
             ResourceId: !Ref testResource
             HttpMethod: GET
+            AuthorizationType: NONE
             Integration:
                 Type: AWS_PROXY
                 IntegrationHttpMethod: POST
