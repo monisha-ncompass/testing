@@ -6,7 +6,7 @@ Resources:
     RestApi:
         Type: 'AWS::ApiGateway::RestApi'
         Properties:
-        Name: test_api
+            Name: test_api
         
     testMethod:
         Type: 'AWS::ApiGateway::Method'
