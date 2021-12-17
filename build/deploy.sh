@@ -20,6 +20,12 @@ Resources:
       - AWSLambdaBasicExecutionRole
       Timeout: 100
 
+  ConfigLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref testing
+      Principal: apigateway.amazonaws.com
 
 Outputs:
   testingARN:
