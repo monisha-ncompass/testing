@@ -7,6 +7,6 @@ exports.handler =  async function(event, context) {
     headers:{    "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "*",
     "Content-Type": "application/json"},
-    body: context.logStreamName
+    body: "Siddhant purushothaman harsha"
   }
  }
