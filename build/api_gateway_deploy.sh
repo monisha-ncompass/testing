@@ -16,7 +16,7 @@ Resources:
             Integration:
                 Type: AWS_PROXY
                 IntegrationHttpMethod: POST
-                Uri: !ImportValue 'testingARN'
+                Uri: !ImportValue 'testingArn'
                 IntegrationResponses:
                     - ResponseTemplates:
                         application/json: ""
