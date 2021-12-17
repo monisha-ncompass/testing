@@ -23,8 +23,8 @@ Resources:
                 StatusCode: 200
             PassthroughBehavior: WHEN_NO_TEMPLATES
         MethodResponses:
-            - StatusCode: 200
-            ResponseModels: { "application/json": "Empty" }     
+        - StatusCode: 200
+          ResponseModels: { "application/json": "Empty" }     
 
 
     Deployment:
