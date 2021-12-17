@@ -7,11 +7,21 @@ Resources:
         Type: 'AWS::ApiGateway::RestApi'
         Properties:
             Name: test_api
-        
+
+    testResource:
+        Type: 'AWS::ApiGateway::Resource'
+        Properties:
+            RestApiId: !Ref RestApi
+            ParentId: !GetAtt 
+                - RestApi
+                - RootResourceId
+            PathPart: codepipeline_test
+
     testMethod:
         Type: 'AWS::ApiGateway::Method'
         Properties: 
             RestApiId: !Ref RestApi
+            ResourceId: !Ref testResource
             HttpMethod: GET
             Integration:
                 Type: AWS_PROXY
