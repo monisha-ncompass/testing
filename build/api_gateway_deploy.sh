@@ -89,7 +89,7 @@ Resources:
 
     Deployment:
         Type: 'AWS::ApiGateway::Deployment'
-        DependsOn: testResource
+        DependsOn: putMethod
         Properties:
             RestApiId: !Ref RestApi
             Description: TEST STAGE
