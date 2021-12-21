@@ -28,11 +28,11 @@ Resources:
             Integration:
                 IntegrationResponses:
                     - StatusCode: 200
-                    ResponseParameters:
+                      ResponseParameters:
                         method.response.header.Access-Control-Allow-Headers: "'username,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
                         method.response.header.Access-Control-Allow-Methods: "'GET,POST,PUT,DELETE,OPTIONS'"
                         method.response.header.Access-Control-Allow-Origin: "'*'"
-                    ResponseTemplates:
+                      ResponseTemplates:
                         application/json: ''
                 PassthroughBehavior: WHEN_NO_MATCH
                 RequestTemplates:
@@ -40,9 +40,9 @@ Resources:
                 Type: MOCK
             MethodResponses:
                 - StatusCode: 200
-                ResponseModels:
+                  ResponseModels:
                     application/json: 'Empty'
-                ResponseParameters:
+                  ResponseParameters:
                     method.response.header.Access-Control-Allow-Headers: false
                     method.response.header.Access-Control-Allow-Methods: false
                     method.response.header.Access-Control-Allow-Origin: false
