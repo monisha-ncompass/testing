@@ -30,7 +30,7 @@ Resources:
                     - StatusCode: 200
                       ResponseParameters:
                         method.response.header.Access-Control-Allow-Headers: "'username,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
-                        method.response.header.Access-Control-Allow-Methods: "'GET,POST,PUT,DELETE,OPTIONS'"
+                        method.response.header.Access-Control-Allow-Methods: "'GET,PUT,OPTIONS'"
                         method.response.header.Access-Control-Allow-Origin: "'*'"
                       ResponseTemplates:
                         application/json: ''
