@@ -17,6 +17,36 @@ Resources:
                 - RootResourceId
             PathPart: codepipeline_test
 
+    OptionsMethod:
+        Type: AWS::ApiGateway::Method
+        Properties:
+            AuthorizationType: NONE
+            RestApiId: !Ref RestApi
+            ResourceId:
+                Ref: testResource
+            HttpMethod: OPTIONS
+            Integration:
+                IntegrationResponses:
+                - StatusCode: 200
+                    ResponseParameters:
+                        method.response.header.Access-Control-Allow-Headers: "'username,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                        method.response.header.Access-Control-Allow-Methods: "'GET,POST,PUT,DELETE,OPTIONS'"
+                        method.response.header.Access-Control-Allow-Origin: "'*'"
+                    ResponseTemplates:
+                        application/json: ''
+                PassthroughBehavior: WHEN_NO_MATCH
+                RequestTemplates:
+                    application/json: '{"statusCode": 200}'
+                Type: MOCK
+            MethodResponses:
+                - StatusCode: 200
+                ResponseModels:
+                    application/json: 'Empty'
+                ResponseParameters:
+                    method.response.header.Access-Control-Allow-Headers: false
+                    method.response.header.Access-Control-Allow-Methods: false
+                    method.response.header.Access-Control-Allow-Origin: false
+                
     testMethod:
         Type: 'AWS::ApiGateway::Method'
         Properties: 
