@@ -27,7 +27,7 @@ Resources:
             HttpMethod: OPTIONS
             Integration:
                 IntegrationResponses:
-                - StatusCode: 200
+                    - StatusCode: 200
                     ResponseParameters:
                         method.response.header.Access-Control-Allow-Headers: "'username,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
                         method.response.header.Access-Control-Allow-Methods: "'GET,POST,PUT,DELETE,OPTIONS'"
