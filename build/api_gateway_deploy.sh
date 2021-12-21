@@ -66,7 +66,26 @@ Resources:
             MethodResponses:
                 - StatusCode: 200
                   ResponseModels: { "application/json": "Empty" }     
-
+    
+    putMethod:
+        Type: 'AWS::ApiGateway::Method'
+        Properties: 
+            RestApiId: !Ref RestApi
+            ResourceId: !Ref testResource
+            HttpMethod: PUT
+            AuthorizationType: NONE
+            Integration:
+                Type: AWS_PROXY
+                IntegrationHttpMethod: POST
+                Uri: !ImportValue 'testingArn'
+                IntegrationResponses:
+                    - ResponseTemplates:
+                        application/json: ""
+                      StatusCode: 200
+                PassthroughBehavior: WHEN_NO_TEMPLATES
+            MethodResponses:
+                - StatusCode: 200
+                  ResponseModels: { "application/json": "Empty" }  
 
     Deployment:
         Type: 'AWS::ApiGateway::Deployment'
@@ -75,7 +94,6 @@ Resources:
             RestApiId: !Ref RestApi
             Description: TEST STAGE
             StageName: DEV
-  
 
 EOM
 
