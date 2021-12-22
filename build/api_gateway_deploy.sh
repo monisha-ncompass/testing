@@ -64,6 +64,7 @@ Resources:
             ResourceId: !Ref testResource
             HttpMethod: GET
             AuthorizationType: CUSTOM
+            AuthorizerId: !Ref Authorizer
             Integration:
                 Type: AWS_PROXY
                 IntegrationHttpMethod: POST
@@ -84,6 +85,7 @@ Resources:
             ResourceId: !Ref testResource
             HttpMethod: PUT
             AuthorizationType: CUSTOM
+            AuthorizerId: !Ref Authorizer
             Integration:
                 Type: AWS_PROXY
                 IntegrationHttpMethod: POST
