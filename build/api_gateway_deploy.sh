@@ -7,6 +7,7 @@ Resources:
         Type: 'AWS::ApiGateway::RestApi'
         Properties:
             Name: test_api
+
     Authorizer:
         Type: 'AWS::ApiGateway::Authorizer'
         Properties:
@@ -38,7 +39,7 @@ Resources:
                 IntegrationResponses:
                     - StatusCode: 200
                       ResponseParameters:
-                        method.response.header.Access-Control-Allow-Headers: "'username,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                        method.response.header.Access-Control-Allow-Headers: "'Auth,Username,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
                         method.response.header.Access-Control-Allow-Methods: "'GET,PUT,OPTIONS'"
                         method.response.header.Access-Control-Allow-Origin: "'*'"
                       ResponseTemplates:
@@ -62,7 +63,7 @@ Resources:
             RestApiId: !Ref RestApi
             ResourceId: !Ref testResource
             HttpMethod: GET
-            AuthorizationType: NONE
+            AuthorizationType: CUSTOM
             Integration:
                 Type: AWS_PROXY
                 IntegrationHttpMethod: POST
@@ -82,7 +83,7 @@ Resources:
             RestApiId: !Ref RestApi
             ResourceId: !Ref testResource
             HttpMethod: PUT
-            AuthorizationType: NONE
+            AuthorizationType: CUSTOM
             Integration:
                 Type: AWS_PROXY
                 IntegrationHttpMethod: POST
