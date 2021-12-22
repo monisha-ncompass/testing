@@ -7,6 +7,22 @@ Resources:
         Type: 'AWS::ApiGateway::RestApi'
         Properties:
             Name: test_api
+    Authorizer:
+        Type: 'AWS::ApiGateway::Authorizer'
+        Properties:
+            AuthorizerCredentials: null
+            AuthorizerResultTtlInSeconds: '300'
+            AuthorizerUri: !Join 
+            - ''
+            - - 'arn:aws:apigateway:'
+                - !Ref 'AWS::Region'
+                - ':lambda:path/2015-03-31/functions/'
+                - arn:aws:lambda:us-east-1:368355641188:function:api-authorizer
+                - /invocations
+            Type: TOKEN
+            IdentitySource: method.request.header.Auth
+            Name: DefaultAuthorizer
+            RestApiId: !Ref RestApi
 
     testResource:
         Type: 'AWS::ApiGateway::Resource'
