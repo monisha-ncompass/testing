@@ -10,7 +10,6 @@ Resources:
     Authorizer:
         Type: 'AWS::ApiGateway::Authorizer'
         Properties:
-            AuthorizerCredentials: null
             AuthorizerResultTtlInSeconds: '300'
             AuthorizerUri: 'arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:368355641188:function:api-authorizer/invocations'
             Type: TOKEN
