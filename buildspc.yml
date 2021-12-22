@@ -5,10 +5,13 @@ phases:
     commands:
       - npm -v
       - bash build/deploy.sh
+      - bash build/deploy_auth.sh
       - bash build/api_gateway_deploy.sh
+      - sam package --template-file auth_template.yaml --s3-bucket lambda-codepipeline--test --output-template-file auth_packaged.yaml
       - sam package --template-file template.yaml --s3-bucket lambda-codepipeline--test --output-template-file packaged.yaml
 artifacts:
   files:
     - "packaged.yaml"
+    - "auth_packaged.yaml"
     - "gateway_template.yaml"
   discard-paths: yes
